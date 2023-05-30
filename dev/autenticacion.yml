@@ -1,12 +1,12 @@
 server:
-  port: 8083
+  port: 8086
 
 spring:
   application:
-    name: blacklist
+    name: autenticacion
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1432;DatabaseName=blacklist;encrypt=false;trustServerCertificate=false;
+    url: jdbc:sqlserver://localhost:1432;DatabaseName=autenticacion;encrypt=false;trustServerCertificate=false;
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: sa
     password: Admin123456789
@@ -20,6 +20,19 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: 'false'
+jwt:
+  secret: secret
+
+admin-paths:
+  paths:
+    - uri: "/api/black-list"
+      method: "POST"
+    - uri: "/api/black-list"
+      method: "PUT"
+    - uri: "/api/black-list/{1}[1-9]+[0-9]*"
+      method: "DELETE"
+    - uri: "/api/black-list/{1}[1-9]+[0-9]*"
+      method: "GET"
 
 eureka:
   client:

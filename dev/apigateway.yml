@@ -6,7 +6,7 @@ spring:
     gateway:
       routes:
         - id: blacklist
-          uri: lb://black-list
+          uri: lb://blacklist
           predicates:
             - Path=/api/black-list/**
           filters:
